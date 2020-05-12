@@ -1,0 +1,32 @@
+{
+  "name": "denim-js-interview",
+  "version": "2.0.0",
+  "description": "JS Interview Questions and Tests for Denim Social",
+  "main": "index.js",
+  "scripts": {
+    "hello": "echo 'Hello, World'",
+    "test": "jest --verbose",
+    "test1": "jest ./tests/findHighestFreq.test.js --verbose",
+    "test2": "jest ./tests/getPropArr.test.js --verbose",
+    "test3": "jest ./tests/sortObjArr.test.js --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denimsocial/denim-js-interview.git"
+  },
+  "author": "Nilsson S. Berndt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denimsocial/denim-js-interview/issues"
+  },
+  "homepage": "https://github.com/denimlabs/denim-js-interview#readme",
+  "dependencies": {
+    "core-js": "^3.6.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "jest": "^26.0.1"
+  }
+}
