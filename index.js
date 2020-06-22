@@ -1,4 +1,3 @@
-
 //  1. Find Highest Frequency (findHighestFreq)
 //
 //  Goal: find the most frequent occurrence in an array
@@ -9,14 +8,38 @@
 //
 //  Note: if there is no winner, return 'null'
 
-export function findHighestFreq(inputArr) {
+import { retrieveElementFrom, compareSiganature } from './utils';
 
+export function findHighestFreq(inputArr) {
   /*<YOUR CODE HERE>*/
 
+  // Createa a Map Object to store the element signature and its occurence
+  let occurenceMap = new Map();
+  for (const el of inputArr) {
+    // Create a signature for element to preserve type info
+    let elSignature = el + ',' + typeof el;
+    if (occurenceMap.has(elSignature)) {
+      occurenceMap.set(elSignature, occurenceMap.get(elSignature) + 1);
+    } else {
+      occurenceMap.set(elSignature, 1);
+    }
+  }
+
+  let winnerSignature = [...occurenceMap.entries()].reduce((a, e) =>
+    e[1] > a[1] ? e : a
+  )[0];
+
+  // Return null if there is no clear winner
+  // Check if there's another identical signature as the winnner's
+  if (
+    !compareSiganature(
+      winnerSignature,
+      [...occurenceMap.entries()].reduce((a, e) => (e[1] >= a[1] ? e : a))[0]
+    )
+  )
+    return null;
+  return retrieveElementFrom(winnerSignature);
 }
-
-
-
 
 //  2. Get Property Array (getPropArr)
 //
@@ -24,8 +47,8 @@ export function findHighestFreq(inputArr) {
 //
 //  Input: an array of objects (<objects>), and a property string (<field>) i.e.
 //
-//    objects = [{id: 1, name: 'joe'}, {id: 2, name: 'tom'}, {id: 3, name: 'mike'}] 
-//            
+//    objects = [{id: 1, name: 'joe'}, {id: 2, name: 'tom'}, {id: 3, name: 'mike'}]
+//
 //    field   = 'name'
 //
 //  Output: an array of values i.e. ['joe', 'tom', 'mike'] in the above example
@@ -33,13 +56,8 @@ export function findHighestFreq(inputArr) {
 //  Note: if <objects> is undefined, return 'null'
 
 export function getPropArr(objects, field) {
-
   /*<YOUR CODE HERE>*/
-
 }
-
-
-
 
 //  3. Sort Object Array (sortObjArr):
 //
@@ -51,12 +69,12 @@ export function getPropArr(objects, field) {
 //              A, B, C, D (strings / alphabetically)
 //              1, 2, 3, 4 (numbers or counts / numerically)
 //
-//    'desc' = descending: 
+//    'desc' = descending:
 //              D, C, B, A
 //              4, 3, 2, 1
-// 
+//
 //  Output: the initial array of <objects> sorted by <field> in the appropriate <order>
-//    
+//
 //    Reference './tests/mockUsers.js' for the user data structures
 //
 //  Note: should be able to sort objects based on the following fields:
@@ -68,7 +86,5 @@ export function getPropArr(objects, field) {
 //    age (number / numerically)
 
 export function sortObjArr(objects, field, order) {
-
   /*<YOUR CODE HERE>*/
-
 }
