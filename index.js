@@ -8,7 +8,7 @@
 //
 //  Note: if there is no winner, return 'null'
 
-import { retrieveElementFrom, compareSiganature } from './utils';
+import { retrieveElementFrom, compareSignature } from './utils';
 
 export function findHighestFreq(inputArr) {
   /*<YOUR CODE HERE>*/
@@ -32,7 +32,7 @@ export function findHighestFreq(inputArr) {
   // Return null if there is no clear winner
   // Check if there's another identical signature as the winnner's
   if (
-    !compareSiganature(
+    !compareSignature(
       winnerSignature,
       [...occurenceMap.entries()].reduce((a, e) => (e[1] >= a[1] ? e : a))[0]
     )
