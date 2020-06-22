@@ -90,4 +90,10 @@ export function getPropArr(objects, field) {
 
 export function sortObjArr(objects, field, order) {
   /*<YOUR CODE HERE>*/
+  if (objects === undefined || objects === null) return null;
+
+  if (order === 'asc') objects.sort((a, b) => (a[field] > b[field] ? 1 : -1));
+  if (order === 'desc') objects.sort((a, b) => (a[field] > b[field] ? -1 : 1));
+
+  return objects;
 }
