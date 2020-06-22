@@ -57,6 +57,9 @@ export function findHighestFreq(inputArr) {
 
 export function getPropArr(objects, field) {
   /*<YOUR CODE HERE>*/
+  if (objects === undefined || objects === null) return null;
+
+  return objects.map((e) => e[field]);
 }
 
 //  3. Sort Object Array (sortObjArr):
