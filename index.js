@@ -88,12 +88,16 @@ export function getPropArr(objects, field) {
 //    groups (count / numerically)
 //    age (number / numerically)
 
+function compareKey(key, order) {
+  if (!['asc', 'desc'].includes(order)) throw `Invalid order ${order}`;
+  return (a, b) => {
+    if (a[key] == b[key]) return 0;
+    return (a[key] < b[key] ? -1 : 1) * (order === 'asc' ? 1 : -1);
+  };
+}
+
 export function sortObjArr(objects, field, order) {
   /*<YOUR CODE HERE>*/
   if (objects === undefined || objects === null) return null;
-
-  if (order === 'asc') objects.sort((a, b) => (a[field] > b[field] ? 1 : -1));
-  if (order === 'desc') objects.sort((a, b) => (a[field] > b[field] ? -1 : 1));
-
-  return objects;
+  return objects.sort(compareKey(field, order));
 }
