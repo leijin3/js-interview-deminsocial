@@ -19,3 +19,12 @@ export function compareSignature(signature1, signature2) {
   let [element2, type2] = signature2.split(',');
   return element1 === element2 && type1 === type2;
 }
+
+
+export function compareKey(key, order) {
+  if (!['asc', 'desc'].includes(order)) throw `Invalid order ${order}`;
+  return (a, b) => {
+    if (a[key] == b[key]) return 0;
+    return (a[key] < b[key] ? -1 : 1) * (order === 'asc' ? 1 : -1);
+  };
+}

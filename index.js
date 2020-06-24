@@ -8,7 +8,7 @@
 //
 //  Note: if there is no winner, return 'null'
 
-import { retrieveElementFrom, compareSignature } from './utils';
+import { retrieveElementFrom, compareSignature, compareKey } from './utils';
 
 export function findHighestFreq(inputArr) {
   /*<YOUR CODE HERE>*/
@@ -87,14 +87,6 @@ export function getPropArr(objects, field) {
 //    email (string / alphabetically)
 //    groups (count / numerically)
 //    age (number / numerically)
-
-function compareKey(key, order) {
-  if (!['asc', 'desc'].includes(order)) throw `Invalid order ${order}`;
-  return (a, b) => {
-    if (a[key] == b[key]) return 0;
-    return (a[key] < b[key] ? -1 : 1) * (order === 'asc' ? 1 : -1);
-  };
-}
 
 export function sortObjArr(objects, field, order) {
   /*<YOUR CODE HERE>*/
