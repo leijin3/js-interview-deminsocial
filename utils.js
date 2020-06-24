@@ -14,7 +14,7 @@ export function retrieveElementFrom(signature) {
   }
 }
 
-export function compareSignature(signature1, signature2) {
+export function identicalSignatureExists(signature1, signature2) {
   let [element1, type1] = signature1.split(',');
   let [element2, type2] = signature2.split(',');
   return element1 === element2 && type1 === type2;
